@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>my</title>
+    <link rel="stylesheet" href="./css/my.css">
+    <link rel="stylesheet" href="./common.css">
+</head>
+<body>
+    <div class="box">
+    <header>
+        <div class="top">
+            <ul>
+                <li><a href="">
+                    <img src="./image/my/down.png" alt="" class="top_"><span>下载</span>
+                </a></li>
+                <li><a href="">
+                    <img src="./image/my/urse.png" alt="" class="top_"><span>我的</span>
+                </a></li>
+            </ul>
+        </div>
+        <div class="pho">
+            <img src="./image/my/logo.png" alt="">
+        </div>
+        <div class="login">
+            </span><a href="">登录</a>
+        </div>
+    </header>
+<div class="bottom">
+    <ul>
+        <li><img src="./image/my/icon1.png" alt="">
+           <div class="nav">
+            <a href="">我关注的房源<img src="./image/my/right.png" alt=""></a>
+
+          </div>
+        </li>
+        <li><img src="./image/my/icon2.png" alt="">
+            <div class="nav">
+             <a href="">我关注的小区<img src="./image/my/right.png" alt=""></a>
+ 
+           </div>
+         </li>
+         <li><img src="./image/my/icon3.png" alt="">
+            <div class="nav">
+             <a href="">我关注的新房<img src="./image/my/right.png" alt=""></a>
+ 
+           </div>
+         </li>
+         <li><img src="./image/my/icon4.png" alt="">
+            <div class="nav">
+             <a href="">我看房的记录<img src="./image/my/right.png" alt=""></a>
+ 
+           </div>
+         </li>
+
+    </ul>
+</div>
+</div>
+</body>
+
+
+
+
+
+    <script>
+    function setRem() {
+        var uiw = 320;
+        var winw = document.documentElement.clientWidth || document.body.clientWidth;
+        document.documentElement.style.fontSize = (winw / uiw) * 100 + "px";
+    }
+    setRem();
+    window.onresize = function () {
+        setRem();
+    }
+</script>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="./css/list.css">
+    <link rel="stylesheet" href="./common.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+        </div>
+        <div class="my">
+            <a href="./register.html"></a>
+            <a href=""></a>
+        </div>
+    </header>
+    <section>
+        <div class="search">
+            <input type="text" placeholder="请输入小区名或商圈名称">
+            <span></span>
+            <a href=""></a>
+        </div>
+        <ul class="nav-list">
+        </ul>
+        <ul class="two-nav">
+            <li class="list1 hide">
+            </li>
+            <li class="list2 hide">
+            </li>
+            <li class="list3 hide">
+            </li>
+            <li class="list4 hide">
+            </li>
+        </ul>
+        <ul class="houses">
+        </ul>
+    </section>
+    <footer>
+        <p><strong>北京找房无忧>首页</p>
+        <div class="footer">
+            <div class="foot">
+                <div class="foot_left">
+                    <img src="./index/apple.png" alt="">
+                    <p><a href="">iphone</a></p>
+                    <p><a href="">客户端</a></p>
+                </div>
+                <div class="foot_left">
+                    <img src="./index/android.png" alt="">
+                    <p><a href="">android</a></p>
+                    <p><a href="">客户端</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="foo_b">
+            <p>北京找房无忧房地产经纪公司</p>
+            <p>网络经营许可证京ICP备20160812号</p>
+        </div>
+    </footer>
+    <div class="bg"></div>
+    <script src="./js/rem.js"></script>
+    <script src="./js/doT.min.js"></script>
+    <script src="./js/zepto.js"></script>
+    <script src="./js/zepto.touch.js"></script>
+    <script id="listNavDot" type="text/x-dot-template">
+        {{~it.navList:value:index}}
+            <li>
+                <span>{{=value}}<span></span></span>
+            </li>
+        {{~}}
+    </script>
+    <script id="listHouseDot" type="text/x-dot-template">
+        {{~it.houses:val:i}}
+            <li>
+                <a href="">
+                    <div class="kind">
+                        <img src="{{=val.imgSrc}}" alt="">
+                    </div>
+                    <div class="info">
+                        <div class="name">{{=val.info.name}}</div>
+                        <div><span>{{=val.info.div2}}</span></div>
+                        <div><span>{{=val.info.div3.span1}}</span><span>{{=val.info.div3.span2}}</span></div>
+                        <div><span>{{=val.info.div4}}</span></div>
+                    </div>
+                </a>
+            </li>
+        {{~}}
+    </script>
+    <script id="listDot1" type="text/x-dot-template">
+        {{~it.list1:item1:i}}
+            <div>
+                {{~item1.div1:m:n}}
+                    <span>{{=m}}</span>
+                {{~}}
+            </div>
+            <div>
+                {{~item1.div2:m:n}}
+                    <span>{{=m}}</span>
+                {{~}}
+            </div>
+            <div>
+                {{~item1.div3:m:n}}
+                    <span>{{=m}}</span>
+                {{~}}
+            </div>
+        {{~}}
+    </script>
+    <script id="listDot2" type="text/x-dot-template">
+        {{~it.list2:item2:i}}
+            <p>{{=item2}}</p>
+        {{~}}
+    </script>
+    <script id="listDot3" type="text/x-dot-template">
+        {{~it.list3:item3:i}}
+            <p>{{=item3}}<span></span></p>
+        {{~}}
+        <a href="">确定</a>
+    </script>
+    <script id="listDot4" type="text/x-dot-template">
+        {{~it.list4:item4:i}}
+            <div class="kuai">
+                <h5>{{=item4.title}}</h5>
+                <div>
+                    {{~item4.kuai:m:n}}
+                        <span>{{=m}}</span>
+                    {{~}}
+                </div>
+            </div>
+        {{~}}
+        <a href="">确定</a>
+    </script>
+    <script>
+        $.ajax({
+            url:"./json/list.json",
+            success(data){
+                var list_nav=doT.template($('#listNavDot').text());
+                $('.nav-list').html(list_nav(data));
+                var list_house=doT.template($('#listHouseDot').text());
+                $('.houses').html(list_house(data));  
+                var list1=doT.template($('#listDot1').text());
+                $('.list1').html(list1(data));
+                var list2=doT.template($('#listDot2').text());
+                $('.list2').html(list2(data));  
+                var list3=doT.template($('#listDot3').text());
+                $('.list3').html(list3(data)); 
+                var list4=doT.template($('#listDot4').text());
+                $('.list4').html(list4(data));                
+            }
+        })
+    </script>
+    <script src="./js/list.js"></script>
+    <script>
+        function setRem() {
+            var uiw = 320;
+            var winw = document.documentElement.clientWidth || document.body.clientWidth;
+            document.documentElement.style.fontSize = (winw / uiw) * 100 + "px";
+        }
+        setRem();
+        window.onresize = function () {
+            setRem();
+        }
+    </script>
+</body>
+</html>
